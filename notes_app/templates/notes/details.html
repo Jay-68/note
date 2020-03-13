@@ -6,14 +6,18 @@
   <title>Document</title>
 </head>
 <body>
-  <h3>Home</h3>
+  <h3>Details</h3>
   {% for note in notes %}
+    <h4>{{ note.note_title }}</h4>
+    <p>
+      {{ note.note_text }}
+    </p>
     <ul>
-      <li>
-      <a href="{% url 'details' note.id %}">{{ note.note_title }}</a>
-      </li>
+      <li>{{ note.publish_date }}</li>
     </ul>
+    <h6>
+      <a href="{% url 'confirm' %}">Delete Note</a>
+    </h6>
   {% endfor %}
-
 </body>
 </html>
