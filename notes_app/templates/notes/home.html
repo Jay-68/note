@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h3>Home</h3>
-  {% for note in notes %}
-    <ul>
-      <li>
-      <a href="{% url 'details' note.id %}">{{ note.note_title }}</a>
-      </li>
-    </ul>
-  {% endfor %}
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
 
-</body>
-</html>
+{% block body_content %}
+<h3>Home</h3>
+{% for note in notes %}
+<ul>
+  <li>
+    <a href="{% url 'details' note.id %}">{{ note.note_title }}</a>
+    <br>
+    <strong>Date:</strong> {{ note.publish_date }}
+  </li>
+</ul>
+{% endfor %}
+
+<div class="row">
+  <div class="col-md-6">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <button class="btn btn-sm btn-elegant ml-3" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+{% endblock body_content %}
