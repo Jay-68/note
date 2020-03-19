@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends '../base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+{% block body_content %}
+<h3>Confirm Deletion</h3>
+<p>Are you sure you want to delete <strong>{{ note.note_title }}</strong> ?</p>
 
-<body>
+<form action="" method="post">
+  {% csrf_token %}
+  <a href="">
+    <input class="btn btn-warning btn-sm" type="submit" value="Yes">
+  </a>
+  <a href="{% url 'home' %}">
+    <button class="btn btn-sm btn-cyan">
+      Cancel
+    </button>
+  </a>
+</form>
 
-  <h3>Confirm Deletion</h3>
-  <button>Delete{{ note.delete }}</button>
 
-  {% for note in notes %}
-    <button>{{ note.delete }}</button>
-  {% endfor %}
-</body>
-
-</html>
+{% endblock %}

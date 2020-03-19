@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block body_content %}
+
   <h3>Details</h3>
   {% for note in notes %}
     <h4>{{ note.note_title }}</h4>
@@ -15,9 +11,9 @@
     <ul>
       <li>{{ note.publish_date }}</li>
     </ul>
-    <h6>
-      <a href="{% url 'confirm' %}">Delete Note</a>
-    </h6>
+    <button class="btn btn-sm btn-dark-green">
+      <a class="text-white" href="confirm_delete">Delete Note</a>
+    </button>
   {% endfor %}
-</body>
-</html>
+
+{% endblock %}

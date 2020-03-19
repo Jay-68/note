@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Mi Nota</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Mi Nota</a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -15,9 +15,12 @@
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Domum
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'new_note' %}">Novus Nota
         </a>
       </li>
     </ul>
