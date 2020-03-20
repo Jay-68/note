@@ -6,13 +6,9 @@
 
 <form action="" method="post">
   {% csrf_token %}
-  <a href="">
-    <input class="btn btn-warning btn-sm" type="submit" value="Yes">
-  </a>
-  <a href="{% url 'home' %}">
-    <button class="btn btn-sm btn-cyan">
-      Cancel
-    </button>
+  <input class="btn btn-warning btn-sm" type="submit" value="Yes">
+  <a class="btn btn-sm btn-cyan" href="{% url 'home' %}">
+    Cancel
   </a>
 </form>
 

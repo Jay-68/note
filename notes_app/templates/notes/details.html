@@ -6,7 +6,7 @@
   {% for note in notes %}
     <h4>{{ note.note_title }}</h4>
     <p>
-      {{ note.note_text }}
+      {{ note.note_text | safe }}
     </p>
     <ul>
       <li>{{ note.publish_date }}</li>
